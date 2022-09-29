@@ -1,4 +1,7 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard/shared/constants.dart';
+import 'package:responsive_dashboard/shared/widgets/chart.dart';
 import 'package:responsive_dashboard/shared/widgets/home_header.dart';
 
 import 'package:responsive_dashboard/shared/widgets/side_menu.dart';
@@ -33,10 +36,30 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.teal,
                               ),
                             ),
+                            const SizedBox(
+                              width: 10,
+                            ),
                             Expanded(
                               flex: 2,
                               child: Container(
-                                color: Colors.amber,
+                                decoration: BoxDecoration(
+                                  color: secondaryColor,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Storage Details',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                            color: Colors.white,
+                                          ),
+                                    ),
+                                    const Chart(),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
