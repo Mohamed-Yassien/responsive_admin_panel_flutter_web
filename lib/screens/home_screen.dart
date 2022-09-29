@@ -1,10 +1,8 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_dashboard/shared/constants.dart';
-import 'package:responsive_dashboard/shared/widgets/chart.dart';
 import 'package:responsive_dashboard/shared/widgets/home_header.dart';
 
 import 'package:responsive_dashboard/shared/widgets/side_menu.dart';
+import 'package:responsive_dashboard/shared/widgets/storage_details_part.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -39,29 +37,7 @@ class HomeScreen extends StatelessWidget {
                             const SizedBox(
                               width: 10,
                             ),
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: secondaryColor,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Storage Details',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1!
-                                          .copyWith(
-                                            color: Colors.white,
-                                          ),
-                                    ),
-                                    const Chart(),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            const StorageDetailsPart(),
                           ],
                         ),
                       ),
