@@ -45,6 +45,7 @@ class ReusableChartCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
+                 const SizedBox(height: 4,),
                   Text(
                     '1260 Files',
                     style: Theme.of(context).textTheme.caption!.copyWith(
