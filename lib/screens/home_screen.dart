@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dashboard/shared/widgets/home_header.dart';
 
 import 'package:responsive_dashboard/shared/widgets/side_menu.dart';
 
@@ -11,13 +12,39 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
-             const Expanded(
+            const Expanded(
               child: SideMenu(),
             ),
             Expanded(
               flex: 5,
-              child: Container(
-                color: Colors.amber,
+              child: Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Column(
+                  children: [
+                    const HomeHeader(),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 5,
+                              child: Container(
+                                color: Colors.teal,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                color: Colors.amber,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
