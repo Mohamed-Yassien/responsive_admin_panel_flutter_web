@@ -7,23 +7,19 @@ class FilesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           'My Files',
-          style: Theme.of(context)
-              .textTheme
-              .subtitle1!
-              .copyWith(
-            color: Colors.white,
-          ),
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                color: Colors.white,
+              ),
         ),
         Container(
-          padding:const EdgeInsets.symmetric(horizontal: 8,vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           decoration: BoxDecoration(
-            borderRadius:
-            BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(4),
             color: primaryColor,
           ),
           child: Row(
@@ -33,14 +29,14 @@ class FilesHeader extends StatelessWidget {
                 color: Colors.white,
                 size: 14,
               ),
+              const SizedBox(
+                width: 10,
+              ),
               Text(
                 'Add New',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption!
-                    .copyWith(
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.caption!.copyWith(
+                      color: Colors.white,
+                    ),
               )
             ],
           ),

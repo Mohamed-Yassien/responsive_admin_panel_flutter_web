@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/shared/widgets/files_header.dart';
 import 'package:responsive_dashboard/shared/widgets/home_header.dart';
 import 'package:responsive_dashboard/shared/widgets/my_files_grid.dart';
+import 'package:responsive_dashboard/shared/widgets/recent_files_part.dart';
 
 import 'package:responsive_dashboard/shared/widgets/side_menu.dart';
 import 'package:responsive_dashboard/shared/widgets/storage_details_part.dart';
@@ -37,10 +38,9 @@ class HomeScreen extends StatelessWidget {
                                 child: Column(
                                   children: const [
                                     FilesHeader(),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
+                                    SizedBox(height: 15),
                                     MyFilesGrid(),
+                                    RecentFilesPart(),
                                   ],
                                 ),
                               ),
