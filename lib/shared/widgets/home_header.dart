@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_dashboard/controllers/MenuController.dart';
+import 'package:responsive_dashboard/shared/responsive.dart';
 
 import '../constants.dart';
 
@@ -8,18 +11,29 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-        Text(
-          'Dashboard',
-          style:
-          Theme.of(context).textTheme.headline6!.copyWith(
-            color: Colors.white,
+        if (!Responsive.isDesktop(context))
+          IconButton(
+            onPressed: () {
+              context.read<MenuController>().controlMenu();
+            },
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.white,
+            ),
           ),
-        ),
-        const Spacer(
-          flex: 2,
-        ),
+        if (!Responsive.isMobile(context))
+          Text(
+            'Dashboard',
+            style: Theme.of(context).textTheme.headline6!.copyWith(
+                  color: Colors.white,
+                ),
+          ),
+        if (!Responsive.isMobile(context))
+          const Spacer(
+            flex: 2,
+          ),
         Expanded(
           child: TextField(
             style: const TextStyle(
@@ -54,7 +68,7 @@ class HomeHeader extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.all(4),
-          margin:const EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
           decoration: BoxDecoration(
@@ -71,15 +85,13 @@ class HomeHeader extends StatelessWidget {
                 'assets/images/profile_pic.png',
                 fit: BoxFit.cover,
               ),
-              Text(
-                'Angelina Jolie',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(
-                  color: Colors.white54,
+              if (!Responsive.isMobile(context))
+                Text(
+                  'Angelina Jolie',
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: Colors.white54,
+                      ),
                 ),
-              ),
               const Icon(
                 Icons.keyboard_arrow_down,
                 color: Colors.white54,

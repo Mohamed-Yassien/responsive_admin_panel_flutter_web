@@ -19,41 +19,30 @@ DataRow recentFileDataRow(RecentFile fileInfo, context) {
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Text(
                 fileInfo.title,
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .subtitle2!
-                    .copyWith(
-                  color: Colors.white38,
-                  fontSize: 14,
-                ),
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      color: Colors.white38,
+                      fontSize: 14,
+                    ),
               ),
             ),
           ],
         ),
       ),
-      DataCell(Text(
-        fileInfo.date,
-        style: Theme
-            .of(context)
-            .textTheme
-            .subtitle2!
-            .copyWith(
-          color: Colors.white38,
-          fontSize: 14,
-
+      DataCell(
+        Text(
+          fileInfo.date,
+          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                color: Colors.white38,
+                fontSize: 14,
+              ),
         ),
-      )),
+      ),
       DataCell(Text(
         fileInfo.size,
-        style: Theme
-            .of(context)
-            .textTheme
-            .subtitle2!
-            .copyWith(
-          color: Colors.white38,
-          fontSize: 14,
-        ),
+        style: Theme.of(context).textTheme.subtitle2!.copyWith(
+              color: Colors.white38,
+              fontSize: 14,
+            ),
       )),
     ],
   );

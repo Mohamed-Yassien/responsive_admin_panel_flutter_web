@@ -9,46 +9,43 @@ class StorageDetailsPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Storage Details',
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(
-                  color: Colors.white,
-                ),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Storage Details',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .copyWith(
+                color: Colors.white,
               ),
-              const Chart(),
-              ReusableChartCard(
-                title: 'Documents Files',
-                svgPath: 'assets/icons/Documents.svg',
-              ),
-              ReusableChartCard(
-                title: 'Media Files',
-                svgPath: 'assets/icons/media.svg',
-              ),
-              ReusableChartCard(
-                title: 'Other Files',
-                svgPath: 'assets/icons/folder.svg',
-              ),
-              ReusableChartCard(
-                title: 'Unknown Files',
-                svgPath: 'assets/icons/unknown.svg',
-              ),
-            ],
-          ),
+            ),
+            const Chart(),
+            ReusableChartCard(
+              title: 'Documents Files',
+              svgPath: 'assets/icons/Documents.svg',
+            ),
+            ReusableChartCard(
+              title: 'Media Files',
+              svgPath: 'assets/icons/media.svg',
+            ),
+            ReusableChartCard(
+              title: 'Other Files',
+              svgPath: 'assets/icons/folder.svg',
+            ),
+            ReusableChartCard(
+              title: 'Unknown Files',
+              svgPath: 'assets/icons/unknown.svg',
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_dashboard/controllers/MenuController.dart';
+import 'package:responsive_dashboard/shared/responsive.dart';
 import 'package:responsive_dashboard/shared/widgets/files_header.dart';
 import 'package:responsive_dashboard/shared/widgets/home_header.dart';
 import 'package:responsive_dashboard/shared/widgets/my_files_grid.dart';
@@ -13,12 +16,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: context.read<MenuController>().scaffoldKey,
+      drawer:const SideMenu(),
       body: SafeArea(
         child: Row(
           children: [
-            const Expanded(
-              child: SideMenu(),
-            ),
+            if (Responsive.isDesktop(context))
+              const Expanded(
+                child: SideMenu(),
+              ),
             Expanded(
               flex: 5,
               child: Padding(
@@ -33,22 +39,35 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 5,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 10.0),
-                                child: Column(
-                                  children: const [
-                                    FilesHeader(),
-                                    SizedBox(height: 15),
-                                    MyFilesGrid(),
-                                    RecentFilesPart(),
-                                  ],
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10.0),
+                                  child: Column(
+                                    children: [
+                                      const FilesHeader(),
+                                      const SizedBox(height: 15),
+                                      const MyFilesGrid(),
+                                      const RecentFilesPart(),
+                                      if (Responsive.isMobile(context))
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                      if (Responsive.isMobile(context))
+                                        const StorageDetailsPart(),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const StorageDetailsPart(),
+                            if (!Responsive.isMobile(context))
+                              const SizedBox(
+                                width: 10,
+                              ),
+                            if (!Responsive.isMobile(context))
+                              const Expanded(
+                                flex: 2,
+                                child: StorageDetailsPart(),
+                              ),
                           ],
                         ),
                       ),
